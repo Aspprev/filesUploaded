@@ -24,7 +24,7 @@ server.use(cors({
 server.use(limiter);
 
 server.get("/", (req, res) => {
-    res.send("Api de upload de arquivos para Aspprev, por favor refira a documentação em !");
+    res.send("Api de upload de arquivos para Aspprev, por favor refira a documentação em https://github.com/Aspprev/filesUploaded!");
 });
 
 server.use("/files", fileManagementRouter);
