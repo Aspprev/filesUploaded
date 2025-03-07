@@ -16,8 +16,10 @@ class FileManagementController {
       if (!file) {
         throw new FileManagementError("Nenhum arquivo enviado!", 400);
       }
+  
+      const sanitizedFile = file.originalname.replace(/[^a-zA-Z0-9.]/g, "_");
 
-      const uniqueFileName = `${Date.now()}-${file.originalname}`;
+      const uniqueFileName = `${Date.now()}-${sanitizedFile}`;
 
       const fileUpload = new Upload({
         client: new S3Client({ region: process.env.AWS_REGION }),
